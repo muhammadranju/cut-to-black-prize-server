@@ -16,7 +16,6 @@ process.on('uncaughtException', error => {
   errorLogger.error('UnhandledException Detected', error);
   process.exit(1);
 });
-console.log(process.env.SUPER_ADMIN_EMAIL);
 let server: any;
 async function main() {
   try {
