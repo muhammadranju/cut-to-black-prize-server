@@ -111,12 +111,22 @@ export const sendConfirmationEmail = async (
                     </ul>
                     
                     <p style="text-align: center; margin: 20px 0;">
-                      <a href="https://cuttoblackprize.com/the-prize" class="cta-button" style="background-color: #D4AF37; color: #000; padding: 15px 30px; text-decoration: none; border-radius: 4px; font-weight: bold; display: inline-block; margin: 20px 0; border: 1px solid #D4AF37;">View Prize Details</a>
+                      <a href="${
+                        process.env.LIVE_URL
+                      }/the-prize" class="cta-button" style="background-color: #D4AF37; color: #000; padding: 15px 30px; text-decoration: none; border-radius: 4px; font-weight: bold; display: inline-block; margin: 20px 0; border: 1px solid #D4AF37;">View Prize Details</a>
                     </p>
                     
-                    <p style="margin: 20px 0; line-height: 1.5;">In the meantime, discover inspiration from our <a href="https://cuttoblackprize.com/winners" style="color: #D4AF37; text-decoration: none;">past winners</a> or revisit the <a href="https://cuttoblackprize.com/rules" style="color: #D4AF37; text-decoration: none;">official rules</a>.</p>
+                    <p style="margin: 20px 0; line-height: 1.5;">In the meantime, discover inspiration from our <a href="${
+                      process.env.LIVE_URL
+                    }/winners" style="color: #D4AF37; text-decoration: none;">past winners</a> or revisit the <a href="${
+      process.env.LIVE_URL
+    }/rules" style="color: #D4AF37; text-decoration: none;">official rules</a>.</p>
                     
-                    <p style="margin: 20px 0; line-height: 1.5;">Should you have any questions or need support, please contact us at <a href="mailto:info@cuttoblackprize.com" style="color: #D4AF37; text-decoration: none;">info@cuttoblackprize.com</a>.</p>
+                    <p style="margin: 20px 0; line-height: 1.5;">Should you have any questions or need support, please contact us at <a href="mailto:info@${
+                      process.env.URL
+                    }" style="color: #D4AF37; text-decoration: none;">info@${
+      process.env.URL
+    }</a>.</p>
                     
                     <p style="margin: 10px 0 0 0; font-style: italic; color: #666;">Your story matters. We're honored to champion it.</p>
                     <p style="margin: 0; font-style: italic; color: #666;">The Cut to Black Prize Team</p>
@@ -127,8 +137,12 @@ export const sendConfirmationEmail = async (
                   <td align="center" style="padding: 20px 30px; background-color: #000; color: #f8f8f8; font-size: 14px;">
                     <p style="margin: 0 0 10px;">&copy; 2025 Cut to Black Prize. All rights reserved.</p>
                     <p style="margin: 0;">
-                      <a href="https://cuttoblackprize.com/rules" class="footer-link" style="color: #D4AF37; text-decoration: none; margin: 0 10px; border-bottom: 1px solid #D4AF37; padding-bottom: 2px;">Official Rules</a> |
-                      <a href="https://cuttoblackprize.com/privacy" class="footer-link" style="color: #D4AF37; text-decoration: none; margin: 0 10px; border-bottom: 1px solid #D4AF37; padding-bottom: 2px;">Privacy Policy</a>
+                      <a href="${
+                        process.env.LIVE_URL
+                      }/rules" class="footer-link" style="color: #D4AF37; text-decoration: none; margin: 0 10px; border-bottom: 1px solid #D4AF37; padding-bottom: 2px;">Official Rules</a> |
+                      <a href="${
+                        process.env.LIVE_URL
+                      }/privacy" class="footer-link" style="color: #D4AF37; text-decoration: none; margin: 0 10px; border-bottom: 1px solid #D4AF37; padding-bottom: 2px;">Privacy Policy</a>
                     </p>
                     <p style="margin: 10px 0 0 0; font-size: 12px; color: #999;">This is an automated confirmation. For inquiries, reply directly.</p>
                   </td>
@@ -212,12 +226,12 @@ export const sendInvitationCode = async (
                     
                     <!-- CTA Button -->
                     <p style="text-align: center; margin: 20px 0;">
-                      <a href="https://cuttoblackprize.com/submit" class="cta-button" style="background-color: #D4AF37; color: #000; padding: 15px 30px; text-decoration: none; border-radius: 4px; font-weight: bold; display: inline-block; border: 1px solid #D4AF37;">Enter Contest Now</a>
+                      <a href="${process.env.LIVE_URL}/submit" class="cta-button" style="background-color: #D4AF37; color: #000; padding: 15px 30px; text-decoration: none; border-radius: 4px; font-weight: bold; display: inline-block; border: 1px solid #D4AF37;">Enter Contest Now</a>
                     </p>
                     
                     <p style="margin: 20px 0; line-height: 1.5;"><strong>How to Submit:</strong></p>
                     <ol style="margin: 0 0 20px; padding-left: 20px;">
-                      <li>Click the button above or visit <a href="https://cuttoblackprize.com/submit" style="color: #D4AF37; text-decoration: none;">cuttoblackprize.com/submit</a>.</li>
+                      <li>Click the button above or visit <a href="${process.env.LIVE_URL}/submit" style="color: #D4AF37; text-decoration: none;">${process.env.LIVE_URL}/submit</a>.</li>
                       <li>Enter your invitation code: <strong>${code}</strong>.</li>
                       <li>Complete the form with your screenplay (PDF, max 20MB) and details.</li>
                       <li>Agree to terms and submit—confirmation will follow instantly.</li>
@@ -225,9 +239,9 @@ export const sendInvitationCode = async (
                     
                     <p style="margin: 20px 0; line-height: 1.5;"><strong>Key Dates:</strong> Submissions close December 31, 2025. Shortlist notifications in February 2026. Winners announced April 2026.</p>
                     
-                    <p style="margin: 20px 0; line-height: 1.5;">Explore more about <a href="https://cuttoblackprize.com/the-prize" style="color: #D4AF37; text-decoration: none;">the prizes</a>, <a href="https://cuttoblackprize.com/winners" style="color: #D4AF37; text-decoration: none;">past winners</a>, and <a href="https://cuttoblackprize.com/rules" style="color: #D4AF37; text-decoration: none;">official rules</a>.</p>
+                    <p style="margin: 20px 0; line-height: 1.5;">Explore more about <a href="${process.env.LIVE_URL}/the-prize" style="color: #D4AF37; text-decoration: none;">the prizes</a>, <a href="${process.env.LIVE_URL}/winners" style="color: #D4AF37; text-decoration: none;">past winners</a>, and <a href="${process.env.LIVE_URL}/rules" style="color: #D4AF37; text-decoration: none;">official rules</a>.</p>
                     
-                    <p style="margin: 20px 0; line-height: 1.5;">Questions? Reply to this email or reach us at <a href="mailto:info@cuttoblackprize.com" style="color: #D4AF37; text-decoration: none;">info@cuttoblackprize.com</a>.</p>
+                    <p style="margin: 20px 0; line-height: 1.5;">Questions? Reply to this email or reach us at <a href="mailto:info@${process.env.URL}" style="color: #D4AF37; text-decoration: none;">info@${process.env.URL}</a>.</p>
                     
                     <p style="margin: 10px 0 0 0; font-style: italic; color: #666;">We can't wait to read your script!</p>
                     <p style="margin: 0; font-style: italic; color: #666;">The Cut to Black Prize Team</p>
@@ -238,9 +252,9 @@ export const sendInvitationCode = async (
                   <td align="center" style="padding: 20px 30px; background-color: #000; color: #f8f8f8; font-size: 14px;">
                     <p style="margin: 0 0 10px;">&copy; 2025 Cut to Black Prize. All rights reserved.</p>
                     <p style="margin: 0;">
-                      <a href="https://cuttoblackprize.com/rules" class="footer-link" style="color: #D4AF37; text-decoration: none;">Official Rules</a> |
-                      <a href="https://cuttoblackprize.com/privacy" class="footer-link" style="color: #D4AF37; text-decoration: none;">Privacy Policy</a> |
-                      <a href="https://cuttoblackprize.com/contact" class="footer-link" style="color: #D4AF37; text-decoration: none;">Contact Us</a>
+                      <a href="${process.env.LIVE_URL}/rules" class="footer-link" style="color: #D4AF37; text-decoration: none;">Official Rules</a> |
+                      <a href="${process.env.LIVE_URL}/privacy" class="footer-link" style="color: #D4AF37; text-decoration: none;">Privacy Policy</a> |
+                      <a href="${process.env.LIVE_URL}/contact" class="footer-link" style="color: #D4AF37; text-decoration: none;">Contact Us</a>
                     </p>
                     <p style="margin: 10px 0 0 0; font-size: 12px; color: #999;">This is a personalized invitation. Please treat your code confidentially.</p>
                   </td>
@@ -310,7 +324,9 @@ export const sendAdminNotification = async (
                       </tr>
                     </table>
                     
-                    <p style="margin: 20px 0; line-height: 1.5;"><strong>Action Required:</strong> Log in to the <a href="https://cuttoblackprize.com/admin/dashboard" style="color: #D4AF37; text-decoration: none; font-weight: bold;">admin dashboard</a> to view full details, download files, and update status.</p>
+                    <p style="margin: 20px 0; line-height: 1.5;"><strong>Action Required:</strong> Log in to the <a href="${
+                      process.env.LIVE_URL
+                    }/admin/dashboard" style="color: #D4AF37; text-decoration: none; font-weight: bold;">admin dashboard</a> to view full details, download files, and update status.</p>
                     
                     <p style="margin: 20px 0; line-height: 1.5;">For questions, reply to this email or contact support.</p>
                   </td>
@@ -320,6 +336,130 @@ export const sendAdminNotification = async (
                   <td style="padding: 20px 30px; background-color: #000; color: #f8f8f8; text-align: center; font-size: 14px;">
                     <p style="margin: 0 0 10px;">&copy; 2025 Cut to Black Prize. Automated Notification.</p>
                     <p style="margin: 0; font-size: 12px;">This is an automated message. Please do not reply directly.</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </body>
+      </html>
+    `,
+  };
+  await transporter.sendMail(mailOptions);
+};
+
+export const sendForgetInviteCodeEmail = async (
+  email: string,
+  code: string,
+  title: string,
+  fullName: string
+): Promise<void> => {
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: email,
+    subject: `Cut to Black Prize: Your Invitation Code Reminder - ${title}`,
+    html: /*html*/ `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cut to Black Prize Code Reminder</title>
+        <style>
+          .code-box { 
+            background-color: #f9f9f9; 
+            color: #000; 
+            padding: 20px; 
+            text-align: center; 
+            font-size: 24px; 
+            font-weight: bold; 
+            font-family: 'Courier New', monospace; 
+            letter-spacing: 2px; 
+            border-radius: 4px; 
+            margin: 20px 0; 
+            border: 2px solid #D4AF37; 
+          }
+          .cta-button { 
+            background-color: #D4AF37; 
+            color: #000; 
+            padding: 15px 30px; 
+            text-decoration: none; 
+            border-radius: 4px; 
+            font-weight: bold; 
+            display: inline-block; 
+            margin: 20px 0; 
+            border: 1px solid #D4AF37; 
+          }
+          .footer-link { 
+            color: #D4AF37; 
+            text-decoration: none; 
+            margin: 0 10px; 
+            border-bottom: 1px solid #D4AF37; 
+            padding-bottom: 2px; 
+          }
+        </style>
+      </head>
+      <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f8f8f8; color: #333; line-height: 1.5;">
+        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #f8f8f8; padding: 20px;">
+          <tr>
+            <td align="center">
+              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: 1px solid #D4AF37;">
+                <!-- Header -->
+                <tr>
+                  <td align="center" style="background-color: #D4AF37; padding: 20px;">
+                    <h1 style="margin: 0; color: #000; font-size: 24px; font-weight: bold;">Cut to Black Prize</h1>
+                    <p style="margin: 5px 0 0 0; color: #000; font-size: 14px; font-style: italic;">Exclusive Screenwriting Competition</p>
+                  </td>
+                </tr>
+                <!-- Content -->
+                <tr>
+                  <td style="padding: 40px 30px; background-color: #f8f8f8; color: #333;">
+                    <h2 style="margin: 0 0 20px; color: #000; font-size: 20px;">Dear ${fullName},</h2>
+                    
+                    <p style="margin: 0 0 20px;">We've received your request to retrieve your invitation code for the <strong>Cut to Black Prize</strong>. No worries—it's easy to get back on track with your submission.</p>
+                    
+                    <p style="margin: 0 0 30px;">Your exclusive code is below. This is a one-time-use invitation, so please use it promptly to submit your screenplay.</p>
+                    
+                    <!-- Invitation Code Box -->
+                    <div class="code-box">
+                      Invitation Code: ${code}
+                    </div>
+                    
+                    <p style="margin: 20px 0; text-align: center; font-size: 16px; font-weight: bold; color: #000;">
+                      Ready to submit? Enter this code on our portal.
+                    </p>
+                    
+                    <!-- CTA Button -->
+                    <p style="text-align: center; margin: 20px 0;">
+                      <a href="${process.env.LIVE_URL}/submit" class="cta-button">Access Submission Portal</a>
+                    </p>
+                    
+                    <p style="margin: 20px 0; line-height: 1.5;"><strong>Quick Reminder:</strong></p>
+                    <ul style="margin: 0 0 20px; padding-left: 20px;">
+                      <li>Visit <a href="${process.env.LIVE_URL}/submit" style="color: #D4AF37; text-decoration: none;">${process.env.URL}/submit</a> and input your code.</li>
+                      <li>Upload your PDF screenplay (max 20MB) and complete the form.</li>
+                      <li>Deadline: December 31, 2025—don't miss out!</li>
+                    </ul>
+                    
+                    <p style="margin: 20px 0; line-height: 1.5;">If this isn't what you expected or you need further assistance, reply to this email or contact <a href="mailto:info@${process.env.URL}" style="color: #D4AF37; text-decoration: none;">info@${process.env.URL}</a>.</p>
+                    
+                    <p style="margin: 20px 0; line-height: 1.5;">Discover more about <a href="${process.env.LIVE_URL}/the-prize" style="color: #D4AF37; text-decoration: none;">the prizes</a>, <a href="${process.env.LIVE_URL}/winners" style="color: #D4AF37; text-decoration: none;">past winners</a>, and <a href="${process.env.LIVE_URL}/rules" style="color: #D4AF37; text-decoration: none;">official rules</a>.</p>
+                    
+                    <p style="margin: 10px 0 0 0; font-style: italic; color: #666;">Your creativity is our inspiration.</p>
+                    <p style="margin: 0; font-style: italic; color: #666;">The Cut to Black Prize Team</p>
+                  </td>
+                </tr>
+                <!-- Footer -->
+                <tr>
+                  <td align="center" style="padding: 20px 30px; background-color: #000; color: #f8f8f8; font-size: 14px;">
+                    <p style="margin: 0 0 10px;">&copy; 2025 Cut to Black Prize. All rights reserved.</p>
+                    <p style="margin: 0;">
+                      <a href="${process.env.LIVE_URL}/rules" class="footer-link">Official Rules</a> |
+                      <a href="${process.env.LIVE_URL}/privacy" class="footer-link">Privacy Policy</a> |
+                      <a href="${process.env.LIVE_URL}/contact" class="footer-link">Contact Us</a>
+                    </p>
+                    <p style="margin: 10px 0 0 0; font-size: 12px; color: #999;">This is an automated reminder. For security, never share your code.</p>
                   </td>
                 </tr>
               </table>

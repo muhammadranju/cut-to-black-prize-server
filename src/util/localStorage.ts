@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
 
-const UPLOAD_DIR = path.join(__dirname, '../uploads/submissions');
+const UPLOAD_DIR = path.join(__dirname, '../../uploads/submissions');
 
 if (!fs.existsSync(UPLOAD_DIR)) {
   fs.mkdirSync(UPLOAD_DIR, { recursive: true });

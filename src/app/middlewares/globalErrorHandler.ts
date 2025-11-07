@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { ErrorRequestHandler } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import config from '../../config';
@@ -67,6 +68,8 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     errorMessages,
     stack: config.node_env !== 'production' ? error?.stack : undefined,
   });
+
+  next();
 };
 
 export default globalErrorHandler;
