@@ -19,6 +19,9 @@ const createUser = catchAsync(async (req: Request, res: Response) => {
 
 const getUserProfile = catchAsync(async (req: Request, res: Response) => {
   const user = req.user;
+  if (!user) {
+    throw new Error('User not authenticated');
+  }
   const result = await UserService.getUserProfileFromDB(user);
 
   sendResponse(res, {
@@ -32,6 +35,9 @@ const getUserProfile = catchAsync(async (req: Request, res: Response) => {
 //update profile
 const updateProfile = catchAsync(async (req: Request, res: Response) => {
   const user = req.user;
+  if (!user) {
+    throw new Error('User not authenticated');
+  }
   const image = getSingleFilePath(req.files, 'image');
 
   const data = {
