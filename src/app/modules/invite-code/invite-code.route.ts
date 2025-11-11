@@ -25,11 +25,6 @@ router
     InviteCodeController.verifyInviteCode
   );
 
-router
-  .route('/forget-invite-code')
-  .post(
-    auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN),
-    InviteCodeController.forgetInviteCode
-  );
+router.route('/forget-invite-code').post(InviteCodeController.forgetInviteCode);
 
 export const InviteCodeRoutes = router;

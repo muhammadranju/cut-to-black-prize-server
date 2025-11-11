@@ -27,7 +27,7 @@ const getInviteCodesDB = async (email?: string, code?: string) => {
     if (email) filter.$or.push({ email: { $regex: email, $options: 'i' } });
   }
 
-  const inviteCodes = await InviteCode.find(filter);
+  const inviteCodes = await InviteCode.find(filter).sort({ createdAt: -1 });
   return inviteCodes;
 };
 
