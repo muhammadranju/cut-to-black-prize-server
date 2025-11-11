@@ -13,6 +13,7 @@ import {
 import InviteCode from '../invite-code/invite-code.model';
 import { SubmissionRequest } from './submissions.interface';
 import Submission from './submissions.model';
+import moment from 'moment';
 
 const createSubmissionDB = async (
   scriptTitle: string,
@@ -24,9 +25,6 @@ const createSubmissionDB = async (
   submissionReq: SubmissionRequest
 ) => {
   // Validate confirmation
-  if (!confirmation) {
-    throw new ApiError(StatusCodes.BAD_REQUEST, 'Must confirm originality');
-  }
 
   // Validate invite code existence and usage
   const invite = await InviteCode.findOne({ code: inviteCode });
@@ -92,6 +90,7 @@ const createSubmissionDB = async (
     inviteCode,
     pdfPath: pdfResult.key,
     synopsisPath,
+    day: moment().format('dddd'),
   });
   await submission.save();
   invite.used = true;
@@ -101,6 +100,7 @@ const createSubmissionDB = async (
     email: invite.email,
     code: inviteCode,
     subject: 'Cut to Black Prize: Submission Received',
+    title: submission.scriptTitle,
     fullName: invite.fullName,
   };
 
@@ -120,7 +120,7 @@ const getAllSubmissionsDB = async (
   if (status) query.status = status as 'Received' | 'In Review' | 'Judged';
 
   const submissions = await Submission.find(query)
-    .sort({ [sort]: order === 'asc' ? 1 : -1 } as any) // Type assertion for dynamic sort
+    .sort({ createdAt: -1 }) // Type assertion for dynamic sort
     .skip(skip)
     .limit(parseInt(limit, 10));
 
@@ -221,6 +221,67 @@ const deleteOneSubmissionDB = async (id: string) => {
   return submission;
 };
 
+const getAnalyticsDataSubmissionDB = async () => {
+  try {
+    const aggregationResult = await Submission.aggregate([
+      {
+        $match: {
+          status: 'Received',
+        },
+      },
+      {
+        $group: {
+          _id: '$day',
+          count: { $sum: 1 },
+        },
+      },
+      {
+        $project: {
+          date: '$_id',
+          value: { $toString: '$count' },
+          _id: 0,
+        },
+      },
+
+      {
+        $sort: { date: 1 },
+      },
+    ]);
+
+    const daysOrder = [
+      'Saturday',
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+    ];
+    const dayCounts = new Map(
+      aggregationResult.map(item => [item.date, parseInt(item.value)])
+    );
+
+    return daysOrder.map(day => ({
+      date: day,
+      value: dayCounts.get(day)?.toString() || '0',
+    }));
+  } catch (error) {
+    const daysOrder = [
+      'Saturday',
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+    ];
+    return daysOrder.map(day => ({
+      date: day,
+      value: '0',
+    }));
+  }
+};
+
 const submissionsService = {
   createSubmissionDB,
   getAllSubmissionsDB,
@@ -228,6 +289,7 @@ const submissionsService = {
   getDownloadSubmissionDB,
   updateStatusSubmissionDB,
   deleteOneSubmissionDB,
+  getAnalyticsDataSubmissionDB,
 };
 
 export default submissionsService;

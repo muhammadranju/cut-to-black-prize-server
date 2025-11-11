@@ -142,3 +142,13 @@ export const deleteOne: RequestHandler = catchAsync(
     });
   }
 );
+
+export const analyticsData = catchAsync(async (req: Request, res: Response) => {
+  const submission = await submissionsService.getAnalyticsDataSubmissionDB();
+  sendResponse(res, {
+    success: true,
+    statusCode: StatusCodes.OK,
+    message: 'Submission retrieved successfully',
+    data: submission,
+  });
+});

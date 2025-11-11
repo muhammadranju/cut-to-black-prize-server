@@ -5,6 +5,7 @@ import { SubmissionDoc } from '../../../types';
 interface ExtendedSubmissionDoc extends SubmissionDoc {
   inviteCode: string;
   codeUsed: boolean;
+  day: string;
 }
 
 const submissionSchema: Schema<ExtendedSubmissionDoc> = new Schema(
@@ -17,27 +18,29 @@ const submissionSchema: Schema<ExtendedSubmissionDoc> = new Schema(
     genre: {
       type: String,
       enum: [
-        'Drama',
-        'Comedy',
-        'Thriller',
-        'Horror',
-        'Sci-Fi',
-        'Fantasy',
-        'Other',
+        'drama',
+        'comedy',
+        'thriller',
+        'horror',
+        'sci-fi',
+        'fantasy',
+        'other',
       ],
       required: true,
     },
     lengthCategory: {
       type: String,
-      enum: ['Short', 'Pilot', 'Feature'],
+      enum: ['short', 'medium', 'feature', 'long'],
       required: true,
     },
-    // confirmation: { type: Boolean, required: true, default: false },
+
     inviteCode: { type: String, required: true }, // New: Store the code used
-    // codeUsed: { type: Boolean, default: true }, // Mark as consumed
     pdfPath: { type: String, required: true },
 
-    timestamp: { type: Date, default: Date.now },
+    day: {
+      type: String,
+    },
+
     status: {
       type: String,
       enum: ['Received', 'In Review', 'Judged'],
