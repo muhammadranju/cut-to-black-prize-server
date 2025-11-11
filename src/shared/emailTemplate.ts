@@ -111,7 +111,7 @@ const sendConfirmationEmail = (values: any) => {
                     <table role="presentation" class="details-table" style="width: 100%; border-collapse: collapse; background-color: #fff;">
                       <tr style="background-color: #f9f9f9;">
                         <td style="font-weight: bold; width: 40%;">Invitation Code:</td>
-                        <td>${values.entryId}</td>
+                        <td>${values.code}</td>
                       </tr>
                       <tr>
                         <td style="font-weight: bold;">Script Title:</td>
