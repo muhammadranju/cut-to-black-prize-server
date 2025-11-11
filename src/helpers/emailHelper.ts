@@ -6,6 +6,7 @@ import { ISendEmail } from '../types/email';
 const transporter = nodemailer.createTransport({
   host: config.email.host,
   port: Number(config.email.port),
+  service: 'gmail',
   secure: false,
   auth: {
     user: config.email.user,
