@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import fs from 'fs';
 import path from 'path';
-import { v4 as uuidv4 } from 'uuid';
+import { randomUUID } from 'crypto';
 
 const UPLOAD_DIR = path.join(__dirname, '../../uploads/submissions');
 
@@ -19,7 +19,8 @@ export const uploadToLocal = async (
   originalName: string,
   type: 'pdf' | 'doc'
 ): Promise<FileResult> => {
-  const anonymizedName = `CTB25_${uuidv4().slice(0, 8)}.${
+  // Use Node's built-in randomUUID to avoid importing the ESM-only `uuid` package
+  const anonymizedName = `CTB25_${randomUUID().slice(0, 8)}.${
     type === 'pdf' ? 'pdf' : 'doc'
   }`;
   const filePath = path.join(UPLOAD_DIR, anonymizedName);
