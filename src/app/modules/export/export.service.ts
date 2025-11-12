@@ -15,7 +15,7 @@ const exportCSVServiceDB = async (
     'scriptTitle',
     'genre',
     'lengthCategory',
-    'timestamp',
+    'day',
     'status',
     'email',
   ];
@@ -44,6 +44,7 @@ const exportExcelServiceDB = async (
     'Script Title': sub.scriptTitle,
     Logline: sub.logline,
     Genre: sub.genre,
+    Day: sub.day,
     'Length Category': sub.lengthCategory,
     'Invite Code': sub.inviteCode,
     'PDF Path': sub.pdfPath,

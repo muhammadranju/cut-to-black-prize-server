@@ -146,14 +146,14 @@ const sendConfirmationEmail = (values: any) => {
                     
                     <p style="margin: 20px 0; line-height: 1.5;">In the meantime, discover inspiration from our <a href="${
                       process.env.LIVE_URL
-                    }/winners" style="color: #D4AF37; text-decoration: none;">past winners</a> or revisit the <a href="${
+                    }/past-winners" style="color: #D4AF37; text-decoration: none;">past winners</a> or revisit the <a href="${
       process.env.LIVE_URL
-    }/rules" style="color: #D4AF37; text-decoration: none;">official rules</a>.</p>
+    }/contest-rules" style="color: #D4AF37; text-decoration: none;">official rules</a>.</p>
                     
                     <p style="margin: 20px 0; line-height: 1.5;">Should you have any questions or need support, please contact us at <a href="mailto:info@${
-                      process.env.URL
+                      process.env.EMAIL
                     }" style="color: #D4AF37; text-decoration: none;">info@${
-      process.env.URL
+      process.env.EMAIL
     }</a>.</p>
                     
                     <p style="margin: 10px 0 0 0; font-style: italic; color: #666;">Your story matters. We're honored to champion it.</p>
@@ -167,7 +167,7 @@ const sendConfirmationEmail = (values: any) => {
                     <p style="margin: 0;">
                       <a href="${
                         process.env.LIVE_URL
-                      }/rules" class="footer-link" style="color: #D4AF37; text-decoration: none; margin: 0 10px; border-bottom: 1px solid #D4AF37; padding-bottom: 2px;">Official Rules</a> |
+                      }/contest-rules" class="footer-link" style="color: #D4AF37; text-decoration: none; margin: 0 10px; border-bottom: 1px solid #D4AF37; padding-bottom: 2px;">Official Rules</a> |
                       <a href="${
                         process.env.LIVE_URL
                       }/privacy" class="footer-link" style="color: #D4AF37; text-decoration: none; margin: 0 10px; border-bottom: 1px solid #D4AF37; padding-bottom: 2px;">Privacy Policy</a>
@@ -269,14 +269,14 @@ const sendForgetInviteCodeEmail = (values: any) => {
                     
                     <p style="margin: 20px 0; line-height: 1.5;"><strong>Quick Reminder:</strong></p>
                     <ul style="margin: 0 0 20px; padding-left: 20px;">
-                      <li>Visit <a href="${process.env.LIVE_URL}/submit" style="color: #D4AF37; text-decoration: none;">${process.env.URL}/submit</a> and input your code.</li>
+                      <li>Visit <a href="${process.env.LIVE_URL}/submit" style="color: #D4AF37; text-decoration: none;">${process.env.LIVE_URL}/submit</a> and input your code.</li>
                       <li>Upload your PDF screenplay (max 20MB) and complete the form.</li>
                       <li>Deadline: December 31, 2025—don't miss out!</li>
                     </ul>
                     
-                    <p style="margin: 20px 0; line-height: 1.5;">If this isn't what you expected or you need further assistance, reply to this email or contact <a href="mailto:info@${process.env.URL}" style="color: #D4AF37; text-decoration: none;">info@${process.env.URL}</a>.</p>
+                    <p style="margin: 20px 0; line-height: 1.5;">If this isn't what you expected or you need further assistance, reply to this email or contact <a href="mailto:info@${process.env.EMAIL}" style="color: #D4AF37; text-decoration: none;">info@${process.env.EMAIL}</a>.</p>
                     
-                    <p style="margin: 20px 0; line-height: 1.5;">Discover more about <a href="${process.env.LIVE_URL}/the-prize" style="color: #D4AF37; text-decoration: none;">the prizes</a>, <a href="${process.env.LIVE_URL}/winners" style="color: #D4AF37; text-decoration: none;">past winners</a>, and <a href="${process.env.LIVE_URL}/rules" style="color: #D4AF37; text-decoration: none;">official rules</a>.</p>
+                    <p style="margin: 20px 0; line-height: 1.5;">Discover more about <a href="${process.env.LIVE_URL}/the-prize" style="color: #D4AF37; text-decoration: none;">the prizes</a>, <a href="${process.env.LIVE_URL}/past-winners" style="color: #D4AF37; text-decoration: none;">past winners</a>, and <a href="${process.env.LIVE_URL}/contest-rules" style="color: #D4AF37; text-decoration: none;">official rules</a>.</p>
                     
                     <p style="margin: 10px 0 0 0; font-style: italic; color: #666;">Your creativity is our inspiration.</p>
                     <p style="margin: 0; font-style: italic; color: #666;">The Cut to Black Prize Team</p>
@@ -287,9 +287,8 @@ const sendForgetInviteCodeEmail = (values: any) => {
                   <td align="center" style="padding: 20px 30px; background-color: #000; color: #f8f8f8; font-size: 14px;">
                     <p style="margin: 0 0 10px;">&copy; 2025 Cut to Black Prize. All rights reserved.</p>
                     <p style="margin: 0;">
-                      <a href="${process.env.LIVE_URL}/rules" class="footer-link">Official Rules</a> |
-                      <a href="${process.env.LIVE_URL}/privacy" class="footer-link">Privacy Policy</a> |
-                      <a href="${process.env.LIVE_URL}/contact" class="footer-link">Contact Us</a>
+                      <a href="${process.env.LIVE_URL}/contest-rules" class="footer-link">Official Rules</a> |
+                      <a href="${process.env.LIVE_URL}/privacy" class="footer-link">Privacy Policy</a> 
                     </p>
                     <p style="margin: 10px 0 0 0; font-size: 12px; color: #999;">This is an automated reminder. For security, never share your code.</p>
                   </td>
@@ -382,9 +381,9 @@ const sendInvitationCode = (values: any) => {
                     
                     <p style="margin: 20px 0; line-height: 1.5;"><strong>Key Dates:</strong> Submissions close December 31, 2025. Shortlist notifications in February 2026. Winners announced April 2026.</p>
                     
-                    <p style="margin: 20px 0; line-height: 1.5;">Explore more about <a href="${process.env.LIVE_URL}/the-prize" style="color: #D4AF37; text-decoration: none;">the prizes</a>, <a href="${process.env.LIVE_URL}/winners" style="color: #D4AF37; text-decoration: none;">past winners</a>, and <a href="${process.env.LIVE_URL}/rules" style="color: #D4AF37; text-decoration: none;">official rules</a>.</p>
+                    <p style="margin: 20px 0; line-height: 1.5;">Explore more about <a href="${process.env.LIVE_URL}/the-prize" style="color: #D4AF37; text-decoration: none;">the prizes</a>, <a href="${process.env.LIVE_URL}/past-winners" style="color: #D4AF37; text-decoration: none;">past winners</a>, and <a href="${process.env.LIVE_URL}/contest-rules" style="color: #D4AF37; text-decoration: none;">official rules</a>.</p>
                     
-                    <p style="margin: 20px 0; line-height: 1.5;">Questions? Reply to this email or reach us at <a href="mailto:info@${process.env.URL}" style="color: #D4AF37; text-decoration: none;">info@${process.env.URL}</a>.</p>
+                    <p style="margin: 20px 0; line-height: 1.5;">Questions? Reply to this email or reach us at <a href="mailto:info@${process.env.EMAIL}" style="color: #D4AF37; text-decoration: none;">info@${process.env.EMAIL}</a>.</p>
                     
                     <p style="margin: 10px 0 0 0; font-style: italic; color: #666;">We can't wait to read your script!</p>
                     <p style="margin: 0; font-style: italic; color: #666;">The Cut to Black Prize Team</p>
@@ -395,9 +394,8 @@ const sendInvitationCode = (values: any) => {
                   <td align="center" style="padding: 20px 30px; background-color: #000; color: #f8f8f8; font-size: 14px;">
                     <p style="margin: 0 0 10px;">&copy; 2025 Cut to Black Prize. All rights reserved.</p>
                     <p style="margin: 0;">
-                      <a href="${process.env.LIVE_URL}/rules" class="footer-link" style="color: #D4AF37; text-decoration: none;">Official Rules</a> |
-                      <a href="${process.env.LIVE_URL}/privacy" class="footer-link" style="color: #D4AF37; text-decoration: none;">Privacy Policy</a> |
-                      <a href="${process.env.LIVE_URL}/contact" class="footer-link" style="color: #D4AF37; text-decoration: none;">Contact Us</a>
+                      <a href="${process.env.LIVE_URL}/contest-rules" class="footer-link" style="color: #D4AF37; text-decoration: none;">Official Rules</a> |
+                      <a href="${process.env.LIVE_URL}/privacy" class="footer-link" style="color: #D4AF37; text-decoration: none;">Privacy Policy</a> 
                     </p>
                     <p style="margin: 10px 0 0 0; font-size: 12px; color: #999;">This is a personalized invitation. Please treat your code confidentially.</p>
                   </td>
@@ -521,18 +519,18 @@ const sendPaymentVerifiedConfirm = (values: any) => {
                     </ul>
                     
                     <p style="margin: 20px 0; line-height: 1.5;">For any questions about your payment or submission, reply to this email or contact <a href="mailto:info@${
-                      process.env.URL
+                      process.env.EMAIL
                     }" style="color: #D4AF37; text-decoration: none;">info@${
-      process.env.URL
+      process.env.EMAIL
     }</a>.</p>
                     
                     <p style="margin: 20px 0; line-height: 1.5;">Explore <a href="${
                       process.env.LIVE_URL
                     }/the-prize" style="color: #D4AF37; text-decoration: none;">prize details</a>, <a href="${
       process.env.LIVE_URL
-    }/winners" style="color: #D4AF37; text-decoration: none;">past winners</a>, and <a href="${
+    }/past-winners" style="color: #D4AF37; text-decoration: none;">past winners</a>, and <a href="${
       process.env.LIVE_URL
-    }/rules" style="color: #D4AF37; text-decoration: none;">official rules</a> to prepare your entry.</p>
+    }/contest-rules" style="color: #D4AF37; text-decoration: none;">official rules</a> to prepare your entry.</p>
                     
                     <p style="margin: 10px 0 0 0; font-style: italic; color: #666;">Your investment in storytelling is appreciated.</p>
                     <p style="margin: 0; font-style: italic; color: #666;">The Cut to Black Prize Team</p>
@@ -545,13 +543,11 @@ const sendPaymentVerifiedConfirm = (values: any) => {
                     <p style="margin: 0;">
                       <a href="${
                         process.env.LIVE_URL
-                      }/rules" class="footer-link" style="color:#D4AF37; text-decoration: none;">Official Rules</a> |
+                      }/contest-rules" class="footer-link" style="color:#D4AF37; text-decoration: none;">Official Rules</a> |
                       <a href="${
                         process.env.LIVE_URL
-                      }/privacy" class="footer-link" style="color:#D4AF37; text-decoration: none;">Privacy Policy</a> |
-                      <a href="${
-                        process.env.LIVE_URL
-                      }/contact" class="footer-link" style="color:#D4AF37; text-decoration: none;">Contact Us</a>
+                      }/privacy" class="footer-link" style="color:#D4AF37; text-decoration: none;">Privacy Policy</a>
+                      
                     </p>
                     <p style="margin: 10px 0 0 0; font-size: 12px; color: #999;">This is an automated confirmation. Secure transaction—no further action required.</p>
                   </td>
