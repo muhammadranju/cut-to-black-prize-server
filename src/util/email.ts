@@ -1,13 +1,39 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-undef */
 import nodemailer from 'nodemailer';
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER as string,
-    pass: process.env.EMAIL_PASS as string,
-  },
-});
+// Prefer explicit SMTP host/port if provided; fall back to Gmail service
+const smtpHost = process.env.EMAIL_HOST;
+const smtpPort = Number(process.env.EMAIL_PORT ?? 0);
+const derivedSecure = smtpPort === 465;
+
+const transporter = smtpHost
+  ? nodemailer.createTransport({
+      host: smtpHost,
+      port: smtpPort || 587,
+      secure: derivedSecure,
+      requireTLS: true,
+      pool: true,
+      maxConnections: 3,
+      maxMessages: 100,
+      connectionTimeout: 10000,
+      socketTimeout: 10000,
+      greetingTimeout: 10000,
+      tls: {
+        minVersion: 'TLSv1.2',
+      },
+      auth: {
+        user: process.env.EMAIL_USER as string,
+        pass: process.env.EMAIL_PASS as string,
+      },
+    })
+  : nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER as string,
+        pass: process.env.EMAIL_PASS as string,
+      },
+    });
 
 export const sendConfirmationEmail = async (
   email: string,
@@ -155,7 +181,15 @@ export const sendConfirmationEmail = async (
       </html>
     `,
   };
-  await transporter.sendMail(mailOptions);
+  try {
+    await transporter.verify();
+    await transporter.sendMail(mailOptions);
+  } catch (error: any) {
+    console.error(
+      `Email Connection error code=${error?.code ?? 'UNKNOWN_ERROR'} host=${smtpHost ?? 'gmail'} port=${smtpPort || 'default'}`
+    );
+    throw error;
+  }
 };
 
 export const sendInvitationCode = async (
@@ -267,7 +301,15 @@ export const sendInvitationCode = async (
       </html>
     `,
   };
-  await transporter.sendMail(mailOptions);
+  try {
+    await transporter.verify();
+    await transporter.sendMail(mailOptions);
+  } catch (error: any) {
+    console.error(
+      `Email Connection error code=${error?.code ?? 'UNKNOWN_ERROR'} host=${smtpHost ?? 'gmail'} port=${smtpPort || 'default'}`
+    );
+    throw error;
+  }
 };
 
 export const sendAdminNotification = async (
@@ -346,7 +388,15 @@ export const sendAdminNotification = async (
       </html>
     `,
   };
-  await transporter.sendMail(mailOptions);
+  try {
+    await transporter.verify();
+    await transporter.sendMail(mailOptions);
+  } catch (error: any) {
+    console.error(
+      `Email Connection error code=${error?.code ?? 'UNKNOWN_ERROR'} host=${smtpHost ?? 'gmail'} port=${smtpPort || 'default'}`
+    );
+    throw error;
+  }
 };
 
 export const sendForgetInviteCodeEmail = async (
