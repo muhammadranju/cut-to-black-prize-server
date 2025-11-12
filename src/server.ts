@@ -10,6 +10,7 @@ import config from './config';
 import { seedSuperAdmin } from './DB/seedAdmin';
 import { socketHelper } from './helpers/socketHelper';
 import { errorLogger, logger } from './shared/logger';
+import { getServerIPs } from './util/getServerIPs';
 
 //uncaught exception
 process.on('uncaughtException', error => {
@@ -30,7 +31,9 @@ async function main() {
 
     server = app.listen(port, () => {
       logger.info(
-        colors.yellow(`♻️  Application listening on port:${config.port}`)
+        colors.yellow(
+          `♻️  Application listening on http://${getServerIPs()}:${config.port}`
+        )
       );
     });
 
