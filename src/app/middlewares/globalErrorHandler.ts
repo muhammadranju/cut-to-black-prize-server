@@ -68,8 +68,8 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     errorMessages,
     stack: config.node_env !== 'production' ? error?.stack : undefined,
   });
-
-  next();
+  // Do not call next() after sending a response to avoid
+  // triggering subsequent middleware (e.g., 404 handler)
 };
 
 export default globalErrorHandler;

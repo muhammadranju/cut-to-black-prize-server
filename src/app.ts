@@ -31,9 +31,6 @@ app.get('/', (req: Request, res: Response) => {
   );
 });
 
-//global error handle
-app.use(globalErrorHandler);
-
 //handle not found route;
 app.use((req, res) => {
   res.status(StatusCodes.NOT_FOUND).json({
@@ -47,5 +44,8 @@ app.use((req, res) => {
     ],
   });
 });
+
+//global error handle (must be the last middleware)
+app.use(globalErrorHandler);
 
 export default app;
