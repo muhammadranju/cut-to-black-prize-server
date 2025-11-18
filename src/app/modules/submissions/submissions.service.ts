@@ -125,7 +125,7 @@ const getAllSubmissionsDB = async (
     .limit(parseInt(limit, 10));
 
   const total = await Submission.countDocuments(query);
-  const baseUrl = process.env.URL || 'http://localhost:5000';
+  const baseUrl = process.env.SERVER_URL || 'http://localhost:5000';
 
   const submissionsWithLinks = submissions.map(sub => {
     const subObj = sub.toObject() as SubmissionDoc;
